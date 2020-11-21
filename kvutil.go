@@ -1,11 +1,11 @@
 package kvutil
 
-type KeyValue struct {
+type KV struct {
 	Key   string
 	Value string
 }
 
-func Get(src *[]KeyValue, key string) *KeyValue {
+func Get(src *[]KV, key string) *KV {
 	for _, item := range *src {
 		if item.Key == key {
 			return &item
@@ -14,7 +14,7 @@ func Get(src *[]KeyValue, key string) *KeyValue {
 	return nil
 }
 
-func Set(dest *[]KeyValue, kv KeyValue) {
+func Set(dest *[]KV, kv KV) {
 	for idx, item := range *dest {
 		if item.Key == kv.Key {
 			(*dest)[idx] = kv
